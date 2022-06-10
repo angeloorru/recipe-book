@@ -20,7 +20,7 @@ jobs:
       run:
         npm run postinstall
     - name: Run Eslint
-      run:
+      run: |
         npm run lint
 
     #- name: Run tests
