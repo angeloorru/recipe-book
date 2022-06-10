@@ -1,4 +1,4 @@
-import { fetchRecipes, fetchRecipeById } from '../db-requests/RecipesData.requests.ts';
+import { fetchRecipes, fetchRecipeById } from '../db-requests/RecipesData.requests';
 
 /**
  * Service Methods GET Operations

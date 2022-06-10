@@ -1,8 +1,8 @@
 import * as express from 'express';
 import { Request, Response } from 'express';
-import { Recipes } from '../interfaces/Recipes.interface.ts';
-import * as RecipeService from '../services/RecipeService.service.ts';
-import { ResponseStatus } from '../enums/RoutesEnum.ts';
+import { Recipes } from '../interfaces/Recipes.interface';
+import * as RecipeService from '../services/RecipeService.service';
+import { ResponseStatus } from '../enums/RoutesEnum';
 
 export const router = express.Router();
 
