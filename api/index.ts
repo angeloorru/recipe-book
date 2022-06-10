@@ -1,25 +1,25 @@
-import * as dotenv from "dotenv";
-import express from "express";
-import {router} from "./routes/Routes.router";
+import * as dotenv from 'dotenv';
+import express from 'express';
+import { router } from './routes/Routes.router';
 
 dotenv.config();
 
 if (!process.env.PORT) {
-    process.exit(1);
+  process.exit(1);
 }
 
 const PORT: number = parseInt(process.env.PORT as string, 10);
 const app = express();
 
 const server = app.listen(PORT, () => {
-    console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 /**
  *  App Configuration
  */
 app.use(express.json());
-app.use("/", router);
+app.use('/', router);
 
 /**
  * Webpack HotModuleReplacement Activation
@@ -42,8 +42,8 @@ interface WebpackHotModule {
 declare const module: WebpackHotModule;
 
 if (module.hot) {
-    module.hot.accept();
-    module.hot.dispose(() => server.close());
+  module.hot.accept();
+  module.hot.dispose(() => server.close());
 }
 
 export default app;

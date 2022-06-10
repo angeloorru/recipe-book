@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "(cd api && npm install) && (cd ui && npm install) && (cd e2e && npm install)"
+    "postinstall": "(cd api && npm install) && (cd ui && npm install) && (cd e2e && npm install)",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint --fix . --ext .ts"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0"
   }
 }

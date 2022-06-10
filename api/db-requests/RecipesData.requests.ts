@@ -1,14 +1,7 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
+const transactionFile = 'src/resources/transactions.json';
 
-const transactionFile = "src/resources/transactions.json";
+export const fetchRecipes = async () => JSON.parse('');
 
-export const fetchRecipes = async () => {
-    //TODO
-    return JSON.parse('');
-}
-
-export const fetchRecipeById = async (recipeId:string) => {
-    //TODO
-    return recipeId;
-};
+export const fetchRecipeById = async (recipeId:string) => recipeId;
