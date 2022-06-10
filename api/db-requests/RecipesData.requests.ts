@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-
 const transactionFile = 'src/resources/transactions.json';
 
 export const fetchRecipes = async () => JSON.parse('');

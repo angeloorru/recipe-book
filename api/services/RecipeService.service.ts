@@ -1,8 +1,8 @@
-import { fetchRecipes, fetchRecipeById } from '../db-requests/RecipesData.requests';
+import { fetchRecipes, fetchRecipeById } from '../db-requests/RecipesData.requests.ts';
 
 /**
  * Service Methods GET Operations
  */
-export const findAllRecipes = async () => await fetchRecipes();
+export const findAllRecipes = async () => fetchRecipes();
 
-export const findRecipesById = async (recipeId: string) => await fetchRecipeById(recipeId);
+export const findRecipesById = async (recipeId: string) => fetchRecipeById(recipeId);

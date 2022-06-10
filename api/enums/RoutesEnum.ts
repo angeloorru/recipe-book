@@ -1,4 +1,4 @@
-export enum Status {
+export enum ResponseStatus {
     OK = 200,
     NOT_FOUND = 404
 }
