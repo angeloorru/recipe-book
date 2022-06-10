@@ -1,17 +1,14 @@
 import "./App.css";
-
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-
-import { Home } from "./pages/Home/Home";
+import { BrowserRouter, Routes, Route} from "react-router-dom";import { Home } from "./pages/Home/Home";
 
 const App = () => {
-  return (
+    return (
     <div className="container">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
