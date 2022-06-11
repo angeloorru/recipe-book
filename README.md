@@ -25,7 +25,7 @@ Run the following command in a separate terminal (You must have your UI and API 
 make test
 ```
 
-## Local dev build tool
+## Local dev api build tool
 Webpack has been implemented for local development.
 To run it, navigate to the `api` folder and once there, type: 
 ```
