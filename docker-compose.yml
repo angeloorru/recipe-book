@@ -9,6 +9,7 @@ services:
     volumes:
        - ./api:/usr/src/app/api
        - /usr/src/app/api/node_modules
+
   recipe-book-ui:
     build:
       context: ./ui
@@ -20,13 +21,17 @@ services:
        - ./ui:/usr/src/app/ui
        - /usr/src/app/ui/node_modules
 
-  ######## Other containers #########
-
-  psql:
-    container_name: test-psql
-    image: 14-alpine
-    ports:
-      - "127.0.0.1:5432:5432"
+  recipe-book-postgres:
+    container_name: recipe-book-postgres
+    image: 'postgres:14.3-alpine'
+    restart: always
     environment:
-      - POSTGRES_USER=admin
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
+      - APP_DB_USER=docker
+      - APP_DB_PASS=docker
+      - APP_DB_NAME=recipes
+    volumes:
+      - ./database-scripts:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432:5432"
