@@ -9,6 +9,8 @@ services:
     volumes:
        - ./api:/usr/src/app/api
        - /usr/src/app/api/node_modules
+    depends_on:
+      - recipe-book-postgres
 
   recipe-book-ui:
     build:
@@ -32,6 +34,6 @@ services:
       - APP_DB_PASS=docker
       - APP_DB_NAME=recipes
     volumes:
-      - ./database-scripts:/docker-entrypoint-initdb.d/
+      - ./database-migration:/docker-entrypoint-initdb.d/
     ports:
       - "5432:5432"
