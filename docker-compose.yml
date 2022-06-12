@@ -34,6 +34,6 @@ services:
       - APP_DB_PASS=docker
       - APP_DB_NAME=recipes
     volumes:
-      - ./database-migration:/docker-entrypoint-initdb.d/
+      - ./api/database-migration:/docker-entrypoint-initdb.d/
     ports:
       - "5432:5432"

@@ -1,5 +1,5 @@
 import {
-  fetchRecipes, fetchRecipeById, addRecipe, deleteRecipe,
+  fetchRecipes, fetchRecipeByName, addRecipe, deleteRecipe,
 } from '../db-requests/RecipesData.requests';
 
 /**
@@ -7,12 +7,12 @@ import {
  */
 export const findAllRecipes = async () => fetchRecipes();
 
-export const findRecipesById = async (recipeId: number) => fetchRecipeById(recipeId);
+export const findRecipeByName = async (recipeName: string) => fetchRecipeByName(recipeName);
 
 /**
  * Service Methods POST Operations
  */
-export const addNewRecipe = async (recipe: object) => addRecipe(recipe);
+export const addNewRecipe = async (name: string, recipe: object) => addRecipe(name, recipe);
 
 /**
  * Service Methods DELETE Operations

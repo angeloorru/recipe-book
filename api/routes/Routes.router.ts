@@ -16,11 +16,10 @@ router.get('/recipes', async (req: Request, res: Response) => {
   }
 });
 
-router.get('/recipes/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
-
+router.get('/recipe', async (req: Request, res: Response) => {
+  const { body } = req;
   try {
-    const recipe: Recipes[] = await RecipeService.findRecipesById(Number(id));
+    const recipe: Recipes[] = await RecipeService.findRecipeByName(body.name);
 
     res.status(ResponseStatus.OK).send(recipe);
   } catch (e) {
@@ -30,8 +29,10 @@ router.get('/recipes/:id', async (req: Request, res: Response) => {
 
 router.post('/recipes', async (req: Request, res: Response) => {
   const recipe: object = req.body;
+  const { name } = req.body;
+
   try {
-    const newRecipe: object = RecipeService.addNewRecipe(recipe);
+    const newRecipe: object = RecipeService.addNewRecipe(name, recipe);
 
     res.status(ResponseStatus.OK).send(newRecipe);
   } catch (e) {

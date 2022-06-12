@@ -6,5 +6,8 @@ export class Recipes {
     id: number;
 
   @Column()
+    name: string;
+
+  @Column()
     recipe: string;
 }

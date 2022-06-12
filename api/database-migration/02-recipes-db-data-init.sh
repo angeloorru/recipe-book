@@ -8,8 +8,8 @@ echo '**************************************************************************
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
  \connect $APP_DB_NAME $APP_DB_USER
   BEGIN;
-	INSERT INTO recipes(recipe)
-  VALUES ('{
+	INSERT INTO recipes(name, recipe)
+  VALUES ('Curried Lentils and Rice', '{
              "name": "Curried Lentils and Rice",
              "ingredients": [
                {
@@ -54,7 +54,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
              ],
              "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
              }'),
-             ('{
+             ('Roasted Asparagus','{
                "name": "Roasted Asparagus",
                "ingredients": [
                  {
@@ -100,7 +100,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
                "imageURL": "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/50/84/7/picMcSyVd.jpg",
                "originalURL": "http://www.food.com/recipe/roasted-asparagus-50847"
              }'),
-             ('{
+             ('Big Night Pizza','{
                "name": "Big Night Pizza",
                "ingredients": [
                  {
@@ -164,7 +164,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
                ],
                "imageURL": "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg"
              }'),
-             ('{
+             ('Mics Yorkshire Puds','{
                "name": "Mics Yorkshire Puds",
                "ingredients": [
                  {
@@ -213,7 +213,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
                "imageURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg",
                "originalURL": "http://upload.wikimedia.org/wikipedia/commons/f/f9/Yorkshire_Pudding.jpg"
              }'),
-             ('{
+             ('Curried chicken salad','{
                "name": "Curried chicken salad",
                "ingredients": [
                  {
