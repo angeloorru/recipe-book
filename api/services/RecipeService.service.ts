@@ -5,4 +5,4 @@ import { fetchRecipes, fetchRecipeById } from '../db-requests/RecipesData.reques
  */
 export const findAllRecipes = async () => fetchRecipes();
 
-export const findRecipesById = async (recipeId: string) => fetchRecipeById(recipeId);
+export const findRecipesById = async (recipeId: number) => fetchRecipeById(recipeId);
