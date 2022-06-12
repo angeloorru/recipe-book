@@ -29,9 +29,24 @@ router.get('/recipes/:id', async (req: Request, res: Response) => {
 });
 
 router.post('/recipes', async (req: Request, res: Response) => {
-  // TODO
+  const recipe: object = req.body;
+  try {
+    const newRecipe: object = RecipeService.addNewRecipe(recipe);
+
+    res.status(ResponseStatus.OK).send(newRecipe);
+  } catch (e) {
+    res.status(ResponseStatus.NOT_FOUND).send(e.message);
+  }
 });
 
 router.delete('/recipes/:id', async (req: Request, res: Response) => {
-  // TODO
+  const { id } = req.params;
+
+  try {
+    const recipe: Recipes = await RecipeService.deleteRecipesById(Number(id));
+
+    res.status(ResponseStatus.OK).send(recipe);
+  } catch (e) {
+    res.status(ResponseStatus.NOT_FOUND).send(e.message);
+  }
 });
