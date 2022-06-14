@@ -1,18 +1,18 @@
 {
-  "root": true,
+  "root": false,
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint"
   ],
   "extends": ["airbnb"],
   "settings": {
-    "import/extensions": [".js",".jsx",".ts",".tsx"],
+    "import/extensions": [".ts"],
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts",".tsx"]
+      "@typescript-eslint/parser": [".ts"]
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js",".jsx",".ts",".tsx"]
+        "extensions": [".ts"]
       }
     }
   },
@@ -35,5 +35,10 @@
     ],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"]
-  }
+  },
+  "overrides": [
+    {
+      "files": [ "api/**/*.ts" ]
+    }
+  ]
 }

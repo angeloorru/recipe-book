@@ -52,7 +52,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
                20,
                0
              ],
-             "imageURL": "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg"
+             "imageURL": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.simplystacie.net%2Fwp-content%2Fuploads%2F2016%2F03%2Flentil-rice-1-1-680x1020.jpg&f=1&nofb=1"
              }'),
              ('Roasted Asparagus','{
                "name": "Roasted Asparagus",
