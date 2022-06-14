@@ -20,7 +20,6 @@ describe("Testing Custom ButtonComponent", () => {
             />,
         );
         const buttonName = screen.getByText(TEST_NAME);
-        console.log(screen.getByText(TEST_NAME))
         expect(buttonName).toBeDefined();
     });
 
