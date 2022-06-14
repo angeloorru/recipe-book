@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "(cd api && npm install) && (cd ui && npm install) && (cd e2e && npm install)",
     "lint-be": "cd api && npm run lint",
-    "lint-fe": "cd ui && npm run lint"
+    "lint-fe": "cd ui && npm run lint",
+    "test-fe": "cd ui && npm test"
   }
 }

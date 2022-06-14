@@ -30,6 +30,5 @@ jobs:
     - name: Run ESLint on frontend
       run: npm run lint-fe
 
-    #- name: Run tests
-    #  run: |
-    #    npm test
+    - name: Run tests on frontend
+      run: npm run test-fe
