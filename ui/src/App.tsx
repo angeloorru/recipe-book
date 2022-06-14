@@ -1,17 +1,41 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import { Home } from "./pages/Home/Home";
+import './App.css';
+import {
+  BrowserRouter, Redirect, Route, Switch,
+} from 'react-router-dom';
+import { GlobalProvider } from './context/GlobalContext';
+import { routes } from './routes/routesObject';
+import { Url } from './routes/routes.enum';
 
-const App = () => {
-    return (
+function App() {
+  return (
     <div className="container">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <GlobalProvider>
+          <Switch>
+            {routes.map((route) => (
+              <RouteWithSubRoutes key={route.path} {...route} />
+            ))}
+            <Redirect to={Url.HOME} />
+          </Switch>
+        </GlobalProvider>
       </BrowserRouter>
     </div>
   );
-};
+}
+
+// A special wrapper for <Route> that knows how to
+// handle "sub"-routes by passing them in a `routes`
+// prop to the component it renders.
+function RouteWithSubRoutes(route: any) {
+  return (
+    <Route
+      path={route.path}
+       children={(props:any) => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} element={route.routes} />
+      )}
+    />
+  );
+}
 
 export default App;

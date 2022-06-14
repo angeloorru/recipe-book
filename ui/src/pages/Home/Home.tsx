@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container } from '@mui/material';
-import { RecipesComponent } from '../../components/RecipesComponent';
+import Typography from '@mui/material/Typography';
+import { RecipesComponent } from '../../components/RecipeComponent/RecipesComponent';
 
 export function Home() {
   return (
     <Container maxWidth="xl">
-      <h1>Recipe App</h1>
-        <RecipesComponent />
+      <Typography variant="h3">Recipe App</Typography>
+      <RecipesComponent />
     </Container>
   );
 }
