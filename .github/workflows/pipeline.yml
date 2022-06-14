@@ -1,6 +1,6 @@
 name: Tech Test
 
-on: 
+on:
   push:
   pull_request:
     branches:
@@ -24,8 +24,11 @@ jobs:
       run:
         npm install
 
-    - name: Run ESLint
-      run: npm run lint
+    - name: Run ESLint on backend
+      run: npm run lint-be
+
+    - name: Run ESLint on frontend
+      run: npm run lint-fe
 
     #- name: Run tests
     #  run: |
