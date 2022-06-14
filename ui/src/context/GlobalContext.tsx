@@ -1,5 +1,5 @@
 import React, {
-  createContext, ReactNode, useContext, useState,
+  createContext, useContext, useState,
 } from 'react';
 
 interface GlobalProviderProps {

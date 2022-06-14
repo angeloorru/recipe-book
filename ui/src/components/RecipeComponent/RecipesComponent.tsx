@@ -27,7 +27,7 @@ export function RecipesComponent() {
         <div key={value.id}>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} style={{ padding: 20 }}>
+              <Grid item xs={8} style={{ padding: 20 }}>
                 <CardComponent key={value.name} name={value.name} details={value.recipe} id={value.id} />
               </Grid>
             </Grid>
