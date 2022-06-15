@@ -14,29 +14,35 @@ import CustomAlert from '../AlertComponent/CustomAlert';
 export default function SearchComponent() {
   const globalServiceContext = useGlobalState();
   // @ts-ignore
-  const { searchedRecipes, setSearchedRecipes } = globalServiceContext;
+  const { searchedRecipes, setSearchedRecipes, isDeleted, setIsDeleted } = globalServiceContext;
   const [recipeName, setRecipeName] = useState<string>('');
   const [isShown, setIsShown] = useState<boolean>(false);
+  const [makeRequest, setMakeRequest] = useState<boolean>(false);
   const [alert, setAlert] = useState<boolean>(false);
 
-
   const searchRecipe = () => {
-    if(recipeName){
+    setMakeRequest(true);
+    !recipeName ? setAlert(true) : setAlert(false);
+
+  }
+
+  useEffect(() => {
+    if(makeRequest){
       getRecipesByName(recipeName)
         . then((response )  => {
           if (typeof response !== 'string') {
             setSearchedRecipes(response.data);
+            setIsShown(true);
+            setIsDeleted(false);
           }
         });
-      setAlert(false);
-    } else {
-      setAlert(true);
+      if(isDeleted) {
+        setIsShown(false);
+        setRecipeName('');
+        setMakeRequest(false);
+      }
     }
-  }
-
-  useEffect(() => {
-    if (searchedRecipes) setIsShown(true);
-  }, [searchedRecipes]);
+  }, [makeRequest, setSearchedRecipes, isDeleted, setIsDeleted, recipeName]);
 
   return (
     <>

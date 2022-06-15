@@ -15,8 +15,9 @@ import ShareIcon from '@mui/icons-material/Share';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { deleteRecipe } from '../../requests/DeleteRecipe.request';
+import { useGlobalState } from '../../context/GlobalContext';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -40,8 +41,10 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function CardComponent(props: CardComponentProps) {
+  const globalServiceContext = useGlobalState();
+  // @ts-ignore
+  const { setIsDeleted } = globalServiceContext;
   const [expanded, setExpanded] = useState<boolean>(false);
-  const [isDeleted, setIsDeleted] = useState<boolean>(false);
   const { name, details, id } = props;
 
   const handleExpandClick = () => {
@@ -49,14 +52,9 @@ export default function CardComponent(props: CardComponentProps) {
   };
 
   const handleClick = () => {
+    deleteRecipe(id);
     setIsDeleted(true);
   };
-
-  useEffect(() => {
-    if (isDeleted) {
-      deleteRecipe(id);
-    }
-  }, [isDeleted, id]);
 
   return (
     <Card sx={{ maxWidth: 345 }}>

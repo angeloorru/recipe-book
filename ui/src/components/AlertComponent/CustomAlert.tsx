@@ -10,7 +10,6 @@ interface AlertComponentProps {
 
 function CustomAlert(props: AlertComponentProps) {
   const { message, severity = 'warning', attributes } = props;
-  console.log(message);
   return (
     <div className="alert">
       <Alert variant="outlined" severity={severity} {...attributes}>{message}</Alert>

@@ -6,6 +6,7 @@ import { Recipe } from '../../interfaces/recipe.interface';
 import { getRecipes } from '../../requests/GetRecipes.request';
 import { useGlobalState } from '../../context/GlobalContext';
 import CardComponent from '../CardComponent/CardComponent';
+import Typography from '@mui/material/Typography';
 
 export function RecipesComponent() {
   const globalServiceContext = useGlobalState();
@@ -19,10 +20,11 @@ export function RecipesComponent() {
           setRecipes(response.data);
         }
       });
-  }, [setRecipes]);
+  }, [recipes, setRecipes]);
 
   return (
     <>
+      <Typography variant="h5">List all recipes</Typography>
       {recipes?.map((value: Recipe) => (
         <div key={value.id}>
           <Box sx={{ flexGrow: 1 }}>
