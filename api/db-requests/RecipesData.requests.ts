@@ -8,10 +8,10 @@ export const fetchRecipeByName = async (recipeName: string) => AppDataSource.get
   .where('recipes.name ilike :name', { name: `%${recipeName}%` })
   .getMany();
 
-export const addRecipe = async (name: string, recipe: object) => {
+export const addRecipe = async (name: string, recipe: any) => {
   const newRecipe = new Recipes();
   newRecipe.name = name;
-  newRecipe.recipe = JSON.stringify(recipe);
+  newRecipe.recipe = JSON.stringify(recipe.recipe);
 
   await AppDataSource.manager.save(newRecipe);
 };

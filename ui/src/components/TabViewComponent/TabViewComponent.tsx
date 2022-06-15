@@ -7,6 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { RecipesComponent } from '../RecipeComponent/RecipesComponent';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import { SyntheticEvent, useState } from 'react';
+import FormComponent from '../FormComponent/FormComponent';
 
 
 export default function TabViewComponent() {
@@ -27,7 +28,7 @@ export default function TabViewComponent() {
           </TabList>
         </Box>
         <TabPanel value="1"><SearchComponent /></TabPanel>
-        <TabPanel value="2"></TabPanel>
+        <TabPanel value="2"><FormComponent /></TabPanel>
         <TabPanel value="3"><RecipesComponent /></TabPanel>
       </TabContext>
     </Box>
