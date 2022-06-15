@@ -13,6 +13,9 @@ export const router = express.Router();
 
 const logger = winston.createLogger(logConfiguration);
 
+/**
+ * GET Recipes
+ */
 router.get('/recipes', async (req: Request, res: Response) => {
   try {
     logger.info('Getting all recipes');
@@ -25,11 +28,13 @@ router.get('/recipes', async (req: Request, res: Response) => {
   }
 });
 
-router.get('/recipe', async (req: Request, res: Response) => {
-  const { body } = req;
+/**
+ * POST Recipes by name
+ */
+router.post('/recipe', async (req: Request, res: Response) => {
   try {
     logger.info('Getting recipe by name');
-    const { name } = body;
+    const { name } = req.body;
     const recipe: Recipes[] = await RecipeService.findRecipeByName(name);
 
     res.status(ResponseStatus.OK).send(recipe);
@@ -39,6 +44,9 @@ router.get('/recipe', async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * POST Add a new Recipe
+ */
 router.post('/recipes', async (req: Request, res: Response) => {
   const recipe: object = req.body;
   const { name } = req.body;
@@ -54,6 +62,9 @@ router.post('/recipes', async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * DELETE Delete Recipe
+ */
 router.delete('/recipes/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
 

@@ -3,10 +3,10 @@ import { Recipes } from '../database/entities/recipes.entity';
 
 export const fetchRecipes = async () => AppDataSource.manager.find(Recipes);
 
-export const fetchRecipeByName = async (recipeName: string) => {
-  const recipe: Recipes[] = await AppDataSource.manager.findBy(Recipes, { name: recipeName });
-  return recipe;
-};
+export const fetchRecipeByName = async (recipeName: string) => AppDataSource.getRepository(Recipes)
+  .createQueryBuilder('recipes')
+  .where('recipes.name ilike :name', { name: `%${recipeName}%` })
+  .getMany();
 
 export const addRecipe = async (name: string, recipe: object) => {
   const newRecipe = new Recipes();

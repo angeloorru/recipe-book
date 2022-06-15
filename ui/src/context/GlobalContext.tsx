@@ -10,18 +10,15 @@ const GlobalContext = createContext({});
 
 export function GlobalProvider({ children }: GlobalProviderProps) {
   const [recipes, setRecipes] = useState();
-  const [recipeName, setRecipeName] = useState();
-  const [recipeDetails, setRecipeDetails] = useState();
+  const [searchedRecipes, setSearchedRecipes] = useState();
 
   return (
     <GlobalContext.Provider
       value={{
         recipes,
         setRecipes,
-        recipeName,
-        setRecipeName,
-        recipeDetails,
-        setRecipeDetails,
+        searchedRecipes,
+        setSearchedRecipes,
         // Add more global state as needed
       }}
     >

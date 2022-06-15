@@ -1,7 +1,8 @@
 export enum Url {
     HOME = '/home',
-    SEARCH_RECIPE = '/search-recipe',
-    ADD_NEW_RECIPE = '/add-new-recipe',
     // TODO: Implement
+    ADD_NEW_RECIPE = '/add-new-recipe',
+    VIEW_ALL_RECIPES = '/vie-all-recipes',
+
     ERROR = '/error',
 }

@@ -8,8 +8,6 @@ interface AlertComponentProps {
   attributes?: any;
 }
 
-// const Alert = ( props:AlertComponentProps ) => <MuiAlert elevation={6} variant={'filled'} {...props} />;
-
 function CustomAlert(props: AlertComponentProps) {
   const { message, severity = 'warning', attributes } = props;
   console.log(message);

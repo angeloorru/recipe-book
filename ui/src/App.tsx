@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  BrowserRouter, Redirect, Route, Switch,
+  BrowserRouter, Redirect, Route, Switch
 } from 'react-router-dom';
 import { GlobalProvider } from './context/GlobalContext';
 import { routes } from './routes/routesObject';
@@ -8,7 +8,7 @@ import { Url } from './routes/routes.enum';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container" data-testid="test-app">
       <BrowserRouter>
         <GlobalProvider>
           <Switch>
