@@ -30,8 +30,31 @@ describe("Recipe tests", () => {
     //Check that a result is returned
     const cardContent = cy.get('.TestNewRecipe').get('.MuiCardHeader-content').last();
     cardContent.should('have.text', 'TestNewRecipe');
+
+    //View ingredients
+    cy.get('[data-testid=ExpandMoreIcon]').first().click();
+    cy.get('.MuiTypography-h6').first().should('have.text', 'Ingredients:');
     //Remove the card - All done
     //cy.get('.delete-icon').click();
+  });
+
+  it(`Given I want to look for a recipe by ingredients
+      When I search by the ingredient of the recipe
+      Then I find the recipe
+      And I can see the ingredients
+      And I can see the cooking methods`, () => {
+    cy.get('.tab-1').click();
+    cy.get('#standard-basic').clear();
+    cy.get('#standard-basic').type('gravy').should('have.value', 'gravy');
+    cy.get('.search-button').click();
+
+    //Check that a result is returned
+    const cardContent = cy.get('.TestNewRecipe').get('.MuiCardHeader-content').last();
+    cardContent.should('have.text', 'TestNewRecipe');
+
+    //View ingredients
+    cy.get('[data-testid=ExpandMoreIcon]').first().click();
+    cy.get('.MuiTypography-h6').first().should('have.text', 'Ingredients:');
   });
 
   it(`Given I delete a recipe
@@ -54,12 +77,4 @@ describe("Recipe tests", () => {
     cy.get('.search-button').click();
     cy.get('.TestNewRecipe').should('not.exist');
   });
-
- /*  it(`Given I want to look for a recipe by ingredients
-      When I search by the ingredient of the recipe
-      Then I find the recipe
-      And I can see the ingredients
-      And I can see the cooking methods`, () => {
-   // expect(true).to.eq(false);
-  }); */
 });
