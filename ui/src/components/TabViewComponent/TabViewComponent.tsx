@@ -22,9 +22,9 @@ export default function TabViewComponent() {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Search" value="1" />
-            <Tab label="Add Recipe" value="2" />
-            <Tab label="View all recipes" value="3" />
+            <Tab className={'tab-1'} label="Search" value="1" />
+            <Tab className={'tab-2'} label="Add Recipe" value="2" />
+            <Tab className={'tab-3'} label="View all recipes" value="3" />
           </TabList>
         </Box>
         <TabPanel value="1"><SearchComponent /></TabPanel>
