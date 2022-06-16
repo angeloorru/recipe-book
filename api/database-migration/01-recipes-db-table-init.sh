@@ -13,7 +13,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
   BEGIN;
     CREATE TABLE IF NOT EXISTS recipes (
 	  id SERIAL PRIMARY KEY,
-	  name  CHAR(50) NOT NULL,
+	  name  VARCHAR NOT NULL,
 	  recipe JSON NOT NULL
 	);
 	CREATE INDEX idx_recipes_id ON recipes (id);
