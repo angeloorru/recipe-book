@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import ButtonComponent from '../Button/ButtonComponent';
 import { FormControl, FormHelperText } from '@mui/material';
@@ -43,7 +43,7 @@ export default function FormComponent() {
         <FormHelperText id="my-helper-text">*POC Recipe details</FormHelperText>
       </FormControl>
 
-      <ButtonComponent variant={'outlined'} text={'Add'} onClick={requestNewRecipe} />
+      <ButtonComponent variant={'outlined'} text={'Add'} className={'add-button'} onClick={requestNewRecipe} />
     </>
   );
 }
