@@ -60,6 +60,7 @@ export default function CardComponent(props: CardComponentProps) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        className={name}
         avatar={(
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             {name.charAt(0)}
@@ -85,7 +86,7 @@ export default function CardComponent(props: CardComponentProps) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <IconButton onClick={handleClick} aria-label="share">
+        <IconButton className={'delete-icon'} onClick={handleClick} aria-label="share">
           <DeleteIcon />
         </IconButton>
         <ExpandMore
@@ -93,6 +94,7 @@ export default function CardComponent(props: CardComponentProps) {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          className={'expand-card'}
         >
           <ExpandMoreIcon />
         </ExpandMore>
