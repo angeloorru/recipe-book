@@ -57,7 +57,7 @@ export default function SearchComponent() {
       >
         <TextField
           id="standard-basic"
-          label="Search recipe"
+          label="Search recipe (Name/Ingr)"
           variant="standard"
           value={recipeName || ''}
           onChange={e => setRecipeName(e.target.value)}
