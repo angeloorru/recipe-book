@@ -42,7 +42,7 @@ export default function SearchComponent() {
         setMakeRequest(false);
       }
     }
-  }, [makeRequest, setSearchedRecipes, isDeleted, setIsDeleted, recipeName]);
+  }, [isShown, makeRequest, setSearchedRecipes, isDeleted, setIsDeleted, recipeName]);
 
   return (
     <>
@@ -63,7 +63,7 @@ export default function SearchComponent() {
           onChange={e => setRecipeName(e.target.value)}
         />
       </Box>
-      <ButtonComponent variant={'outlined'} text={'Search'} onClick={searchRecipe} />
+      <ButtonComponent variant={'outlined'} className={'search-button'} text={'Search'} onClick={searchRecipe} />
       {isShown &&
         searchedRecipes.map((value: Recipe) => (
           <div key={value.id}>
