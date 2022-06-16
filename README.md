@@ -25,7 +25,7 @@ Run the following command in a separate terminal (You must have your UI and API 
 make test
 ```
 
-** Before running e2e tests, ensure that all three containers are running
+** Before running e2e tests, ensure that all three containers are running (`make install docker`)
 
 ## Local dev api build tool
 Webpack has been implemented for local development.
