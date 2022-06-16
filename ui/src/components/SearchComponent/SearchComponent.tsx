@@ -27,7 +27,7 @@ export default function SearchComponent() {
   }
 
   useEffect(() => {
-    if(makeRequest){
+    if(makeRequest && recipeName !== '') {
       getRecipesByName(recipeName)
         . then((response )  => {
           if (typeof response !== 'string') {
@@ -41,6 +41,8 @@ export default function SearchComponent() {
         setRecipeName('');
         setMakeRequest(false);
       }
+    } else {
+      setSearchedRecipes(null);
     }
   }, [isShown, makeRequest, setSearchedRecipes, isDeleted, setIsDeleted, recipeName]);
 
@@ -65,7 +67,7 @@ export default function SearchComponent() {
       </Box>
       <ButtonComponent variant={'outlined'} className={'search-button'} text={'Search'} onClick={searchRecipe} />
       {isShown &&
-        searchedRecipes.map((value: Recipe) => (
+        searchedRecipes?.map((value: Recipe) => (
           <div key={value.id}>
             <Box sx={{ flexGrow: 1}} style={{marginTop: 20}}>
               <Grid container spacing={2}>
