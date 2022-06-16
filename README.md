@@ -48,6 +48,18 @@ From a terminal window, `cd` to the `ui` folder and run the following command:
 npm run test
 ```
 
+### Run whole app stack locally (no docker)
+- Set `PG_HOST` from env file to `127.0.0.1`
+- `cd api`
+- `npm run dev`
+
+In a new terminal window:
+- `cd ui`
+- `npm start`
+
+Finally, you can run only your postgres container using docker:
+- `docker compose up -d recipe-book-postgres`
+
 ## Build an app for a chef to store their favorite recipes.
 Ideal tech stack:
 - Typescript
