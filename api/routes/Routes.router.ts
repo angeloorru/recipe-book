@@ -41,9 +41,10 @@ router.post('/recipe', async (req: Request, res: Response) => {
       const recipeByIngredient: Recipes[] = await RecipeService.findRecipeByIngredient(name);
 
       res.status(ResponseStatus.OK).send(recipeByIngredient);
+    } else {
+      res.status(ResponseStatus.OK).send(recipe);
     }
 
-    res.status(ResponseStatus.OK).send(recipe);
     logger.info(`Recipe "${name}" has been fetched`);
   } catch (e) {
     res.status(ResponseStatus.NOT_FOUND).send(e.message);
