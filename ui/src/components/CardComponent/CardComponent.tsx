@@ -30,6 +30,10 @@ interface CardComponentProps {
   details: any;
 }
 
+interface Ingredient {
+  name: string;
+}
+
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -47,6 +51,7 @@ export default function CardComponent(props: CardComponentProps) {
   const { setIsDeleted } = globalServiceContext;
   const [expanded, setExpanded] = useState<boolean>(false);
   const { name, details, id } = props;
+  const { ingredients } = details;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -101,7 +106,13 @@ export default function CardComponent(props: CardComponentProps) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography variant={'h6'}>Ingredients:</Typography>
+           {ingredients.map((ingredient:Ingredient, index: number) => (
+            <Typography key={index} paragraph>
+              {ingredient?.name}
+            </Typography>
+          ))}
+          <Typography variant={'h6'}>Method:</Typography>
           {details.steps.map((step:string, index: number) => (
             <Typography key={index} paragraph>
               {step}
