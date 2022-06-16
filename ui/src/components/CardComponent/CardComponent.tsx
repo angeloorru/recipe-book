@@ -25,6 +25,7 @@ interface ExpandMoreProps extends IconButtonProps {
 
 interface CardComponentProps {
   id: number;
+  className?: string;
   name: string;
   details: any;
 }
