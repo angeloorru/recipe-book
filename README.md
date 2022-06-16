@@ -32,6 +32,22 @@ To run it, navigate to the `api` folder and once there, type:
 npm run webpack
 ```
 
+## Run unit tests locally
+### API
+From a terminal window, `cd` to the `api` folder and run the following command:
+```
+npm run test
+```
+To generate test coverage, run the following command:
+```
+test:coverage
+```
+### Front end
+From a terminal window, `cd` to the `ui` folder and run the following command:
+```
+npm run test
+```
+
 ## Build an app for a chef to store their favorite recipes.
 Ideal tech stack:
 - Typescript
