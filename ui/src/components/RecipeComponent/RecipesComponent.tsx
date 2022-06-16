@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 export function RecipesComponent() {
   const globalServiceContext = useGlobalState();
   // @ts-ignore
-  const { recipes, setRecipes } = globalServiceContext;
+  const { recipes, setRecipes, isDeleted } = globalServiceContext;
 
   useEffect(() => {
     getRecipes()
@@ -20,7 +20,7 @@ export function RecipesComponent() {
           setRecipes(response.data);
         }
       });
-  }, [recipes, setRecipes]);
+  }, [isDeleted, setRecipes]);
 
   return (
     <>
