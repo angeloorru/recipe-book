@@ -8,6 +8,7 @@ export const routes = [
     component: Home,
     title: { desktop: 'Chef app', mobile: 'Chef app' },
   },
+  //TODO: Implement routing with TabView MUI Component
   {
     path: Url.ADD_NEW_RECIPE,
     component: RecipesComponent,

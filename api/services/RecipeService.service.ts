@@ -1,5 +1,5 @@
 import {
-  fetchRecipes, fetchRecipeByName, addRecipe, deleteRecipe,
+  fetchRecipes, fetchRecipeByName, addRecipe, deleteRecipe, fetchRecipeByIngredients,
 } from '../db-requests/RecipesData.requests';
 
 /**
@@ -8,6 +8,9 @@ import {
 export const findAllRecipes = async () => fetchRecipes();
 
 export const findRecipeByName = async (recipeName: string) => fetchRecipeByName(recipeName);
+
+// eslint-disable-next-line max-len
+export const findRecipeByIngredient = async (recipeName: string) => fetchRecipeByIngredients(recipeName);
 
 /**
  * Service Methods POST Operations

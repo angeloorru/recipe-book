@@ -37,6 +37,28 @@ router.post('/recipe', async (req: Request, res: Response) => {
     const { name } = req.body;
     const recipe: Recipes[] = await RecipeService.findRecipeByName(name);
 
+    if (recipe.length === 0) {
+      const recipeByIngredient: Recipes[] = await RecipeService.findRecipeByIngredient(name);
+
+      res.status(ResponseStatus.OK).send(recipeByIngredient);
+    }
+
+    res.status(ResponseStatus.OK).send(recipe);
+    logger.info(`Recipe "${name}" has been fetched`);
+  } catch (e) {
+    res.status(ResponseStatus.NOT_FOUND).send(e.message);
+  }
+});
+
+/**
+ * POST Recipes by name
+ */
+router.post('/recipe', async (req: Request, res: Response) => {
+  try {
+    logger.info('Getting recipe by name');
+    const { name } = req.body;
+    const recipe: Recipes[] = await RecipeService.findRecipeByName(name);
+
     res.status(ResponseStatus.OK).send(recipe);
     logger.info(`Recipe "${name}" has been fetched`);
   } catch (e) {
