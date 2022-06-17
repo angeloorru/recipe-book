@@ -17,38 +17,40 @@ export default function SearchComponent() {
   const { searchedRecipes, setSearchedRecipes, isDeleted, setIsDeleted } = globalServiceContext;
   const [recipeName, setRecipeName] = useState<string>('');
   const [isShown, setIsShown] = useState<boolean>(false);
-  const [makeRequest, setMakeRequest] = useState<boolean>(false);
-  const [alert, setAlert] = useState<boolean>(false);
+  const [alertEmpty, setAlertEmpty] = useState<boolean>(false);
+  const [noDataAlert, setNoDataAlert] = useState<boolean>(false);
 
   const searchRecipe = () => {
-    setMakeRequest(true);
-    !recipeName ? setAlert(true) : setAlert(false);
-
-  }
-
-  useEffect(() => {
-    if(makeRequest && recipeName !== '') {
+    if (recipeName){
       getRecipesByName(recipeName)
         . then((response )  => {
           if (typeof response !== 'string') {
             setSearchedRecipes(response.data);
             setIsShown(true);
             setIsDeleted(false);
+            setAlertEmpty(false);
+            setNoDataAlert(false);
           }
         });
-      if(isDeleted) {
-        setIsShown(false);
-        setRecipeName('');
-        setMakeRequest(false);
-      }
-    } else {
-      setSearchedRecipes(null);
+    } else{
+      setAlertEmpty(true);
     }
-  }, [isShown, makeRequest, setSearchedRecipes, isDeleted, setIsDeleted, recipeName]);
+  }
+
+  useEffect(() => {
+    searchedRecipes?.length === 0 && setNoDataAlert(true);
+
+    if(isDeleted) {
+      setIsShown(false);
+      setRecipeName('');
+      setIsDeleted(false);
+    }
+  }, [isDeleted, setIsShown, setIsDeleted, setRecipeName, searchedRecipes, noDataAlert]);
 
   return (
     <>
-      {alert && <CustomAlert message={'Text field cannot be empty'} severity={'error'} />}
+      {alertEmpty && <CustomAlert message={'Text field cannot be empty'} severity={'error'} />}
+      {noDataAlert && <CustomAlert message={'Nothing found'} severity={'info'} />}
       <Box
         component="form"
         sx={{
