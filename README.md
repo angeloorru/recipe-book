@@ -7,6 +7,12 @@ The spec below defines 3 user stories all with acceptance criteria. Do your best
 
 Could you provide a GitHub repository link with your work when you feel you've completed the task to tech-test@sero.life?
 
+## End point implemented
+`GET /recipes`: Lists all recipes
+`POST /recipe`: Allow to search by name or ingredient
+`POST /recipes`: Allow to add a new recipe
+`DELETE /recipe/:id`: Allow to delete a recipe
+
 ## How to run the app
 
 Open a terminal and run the following command to spin up the API and React UI
