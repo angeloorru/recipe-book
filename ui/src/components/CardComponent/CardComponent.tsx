@@ -16,7 +16,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
+// eslint-disable-next-line import/extensions
 import { deleteRecipe } from '../../requests/DeleteRecipe.request';
+// eslint-disable-next-line import/extensions
 import { useGlobalState } from '../../context/GlobalContext';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -25,7 +27,7 @@ interface ExpandMoreProps extends IconButtonProps {
 
 interface CardComponentProps {
   id: number;
-  className?: string;
+  // className?: string;
   name: string;
   details: any;
 }
@@ -35,7 +37,7 @@ interface Ingredient {
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
+  const { ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -91,7 +93,7 @@ export default function CardComponent(props: CardComponentProps) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
-        <IconButton className={'delete-icon'} onClick={handleClick} aria-label="share">
+        <IconButton className="delete-icon" onClick={handleClick} aria-label="share">
           <DeleteIcon />
         </IconButton>
         <ExpandMore
@@ -99,20 +101,20 @@ export default function CardComponent(props: CardComponentProps) {
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-          className={'expand-card'}
+          className="expand-card"
         >
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant={'h6'}>Ingredients:</Typography>
+          <Typography variant="h6">Ingredients:</Typography>
            {ingredients.map((ingredient:Ingredient, index: number) => (
             <Typography key={index} paragraph>
               {ingredient?.name}
             </Typography>
           ))}
-          <Typography variant={'h6'}>Method:</Typography>
+          <Typography variant="h6">Method:</Typography>
           {details.steps.map((step:string, index: number) => (
             <Typography key={index} paragraph>
               {step}

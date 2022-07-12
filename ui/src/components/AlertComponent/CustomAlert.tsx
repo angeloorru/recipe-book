@@ -5,6 +5,7 @@ import Alert from '@mui/material/Alert';
 interface AlertComponentProps {
   message: string;
   severity: string;
+  // eslint-disable-next-line react/require-default-props
   attributes?: any;
 }
 

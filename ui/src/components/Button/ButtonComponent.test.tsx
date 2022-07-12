@@ -2,7 +2,6 @@ import React from "react";
 import { cleanup, render, screen, fireEvent } from "@testing-library/react";
 import ButtonComponent from './ButtonComponent';
 
-
 const TEST_NAME = "This is an example button";
 const TEST_ON_PRESS_HANDLE = jest.fn();
 
@@ -13,7 +12,7 @@ describe("Testing Custom ButtonComponent", () => {
         render(
             <ButtonComponent
                 text={TEST_NAME}
-                variant={'contained'}
+                variant="contained"
                 onClick={TEST_ON_PRESS_HANDLE}
                 className="button-container"
                 testId="button-text"
@@ -27,7 +26,7 @@ describe("Testing Custom ButtonComponent", () => {
         render(
             <ButtonComponent
                 text={TEST_NAME}
-                variant={'outlined'}
+                variant="outlined"
                 onClick={TEST_ON_PRESS_HANDLE}
                 className="button-container"
                 testId="button-text"

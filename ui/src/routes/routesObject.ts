@@ -1,5 +1,8 @@
+// eslint-disable-next-line import/extensions
 import { Home } from '../pages/Home/Home';
+// eslint-disable-next-line import/extensions
 import { Url } from './routes.enum';
+// eslint-disable-next-line import/extensions
 import { RecipesComponent } from '../components/RecipeComponent/RecipesComponent';
 
 export const routes = [
@@ -8,7 +11,7 @@ export const routes = [
     component: Home,
     title: { desktop: 'Chef app', mobile: 'Chef app' },
   },
-  //TODO: Implement routing with TabView MUI Component
+  // TODO: Implement routing with TabView MUI Component
   {
     path: Url.ADD_NEW_RECIPE,
     component: RecipesComponent,

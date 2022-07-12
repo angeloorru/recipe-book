@@ -1,31 +1,31 @@
-const mockedData = ( recipeName: string ) => {
+const mockedData = (recipeName: string) => {
   return ({
     name: recipeName,
     ingredients: [
       {
-        "quantity": "1",
-        "name": " beef roast",
-        "type": "Meat"
+        quantity: "1",
+        name: " beef roast",
+        type: "Meat"
       },
       {
-        "quantity": "1 package",
-        "name": "brown gravy mix",
-        "type": "Baking"
+        quantity: "1 package",
+        name: "brown gravy mix",
+        type: "Baking"
       },
       {
-        "quantity": "1 package",
-        "name": "dried Italian salad dressing mix",
-        "type": "Condiments"
+        quantity: "1 package",
+        name: "dried Italian salad dressing mix",
+        type: "Condiments"
       },
       {
-        "quantity": "1 package",
-        "name": "dry ranch dressing mix",
-        "type": "Condiments"
+        quantity: "1 package",
+        name: "dry ranch dressing mix",
+        type: "Condiments"
       },
       {
-        "quantity": "1/2 cup",
-        "name": "water",
-        "type": "Drinks"
+        quantity: "1/2 cup",
+        name: "water",
+        type: "Drinks"
       }
     ],
     steps: [
@@ -43,5 +43,5 @@ const mockedData = ( recipeName: string ) => {
     imageURL: "http://img.sndimg.com/food/image/upload/w_266/v1/img/recipes/27/20/8/picVfzLZo.jpg",
     originalURL: "http://www.food.com/recipe/to-die-for-crock-pot-roast-27208"
   });
-}
+};
 export default mockedData;

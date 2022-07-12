@@ -1,4 +1,5 @@
 import axios from 'axios';
+// eslint-disable-next-line import/extensions
 import { Recipe } from '../interfaces/recipe.interface';
 
 export async function getRecipes() {

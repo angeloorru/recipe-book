@@ -4,11 +4,13 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { RecipesComponent } from '../RecipeComponent/RecipesComponent';
-import SearchComponent from '../SearchComponent/SearchComponent';
 import { SyntheticEvent, useState } from 'react';
+// eslint-disable-next-line import/extensions
+import { RecipesComponent } from '../RecipeComponent/RecipesComponent';
+// eslint-disable-next-line import/extensions
+import SearchComponent from '../SearchComponent/SearchComponent';
+// eslint-disable-next-line import/extensions
 import FormComponent from '../FormComponent/FormComponent';
-
 
 export default function TabViewComponent() {
   const [value, setValue] = useState<string>('1');
@@ -22,9 +24,9 @@ export default function TabViewComponent() {
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab className={'tab-1'} label="Search" value="1" />
-            <Tab className={'tab-2'} label="Add Recipe" value="2" />
-            <Tab className={'tab-3'} label="View all recipes" value="3" />
+            <Tab className="tab-1" label="Search" value="1" />
+            <Tab className="tab-2" label="Add Recipe" value="2" />
+            <Tab className="tab-3" label="View all recipes" value="3" />
           </TabList>
         </Box>
         <TabPanel value="1"><SearchComponent /></TabPanel>

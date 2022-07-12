@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
+// eslint-disable-next-line import/extensions
 import TabViewComponent from '../../components/TabViewComponent/TabViewComponent';
 
 export function Home() {
