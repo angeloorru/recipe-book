@@ -1,4 +1,4 @@
-# Recipe app
+# Recipe Book
 
 ## End point implemented
 * `GET /recipes`: Lists all recipes
