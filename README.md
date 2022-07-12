@@ -1,10 +1,10 @@
 # Recipe app
 
 ## End point implemented
-`GET /recipes`: Lists all recipes
-`POST /recipe`: Allow to search by name or ingredient
-`POST /recipes`: Allow to add a new recipe
-`DELETE /recipe/:id`: Allow to delete a recipe
+* `GET /recipes`: Lists all recipes
+* `POST /recipe`: Allow to search by name or ingredient
+* `POST /recipes`: Allow to add a new recipe
+* `DELETE /recipe/:id`: Allow to delete a recipe
 
 ## How to run the app
 
