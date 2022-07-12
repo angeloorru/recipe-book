@@ -1,29 +1,23 @@
 # Recipe Book
 
-## End point implemented
+## Implemented endpoints
 * `GET /recipes`: Lists all recipes
 * `POST /recipe`: Allow to search by name or ingredient
 * `POST /recipes`: Allow to add a new recipe
 * `DELETE /recipe/:id`: Allow to delete a recipe
 
 ## How to run the app
-
 Open a terminal and run the following command to spin up the API and React UI
-
 ```
 make install docker
 ```
-
 _Navigate to http://localhost:3000 to view the UI_
 
 ## How to run the tests
-
 Run the following command in a separate terminal (You must have your UI and API running)
-
 ```
 make test
 ```
-
 ** Before running e2e tests, ensure that all three containers are running (`make install docker`)
 
 ## Local dev api build tool
